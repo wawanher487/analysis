@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
     libx11-dev \
     libgtk-3-dev \
     unzip \
+    wget \
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
@@ -22,21 +23,17 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Install gdown untuk download file dari Google Drive
-RUN pip install gdown
+# Install gdown versi terbaru untuk mendukung download folder
+RUN pip install --no-cache-dir --upgrade gdown
 
-# Download model & dataset dari Google Drive
-# Gunakan --folder untuk mendownload semua isi folder Google Drive
-RUN gdown --folder https://drive.google.com/drive/folders/1sTfLdQ-mp-00rg2mKayRScKSKh0cvZD- -O /app
-
-# Extract dataset jika dalam format zip (opsional, jika dataset berbentuk zip)
-# RUN unzip /app/dataset.zip -d /app/dataset && rm /app/dataset.zip
-
-# Salin semua file project ke container
+# Copy semua file project ke container
 COPY . .
+
+# Buat entrypoint script untuk handle download dataset
+RUN chmod +x entrypoint.sh
 
 # Expose port aplikasi
 EXPOSE 6734
 
-# Jalankan aplikasi
-CMD ["python", "app.py"]
+# Jalankan aplikasi melalui entrypoint
+CMD ["./entrypoint.sh"]
