@@ -83,13 +83,15 @@ GUID_INSTITUTION = "CMb80a"
 CAMERA_GUID = "CAM-P0721" # GUID Kamera untuk notifikasi
 
 APP_PORT = 6734
-API_URL = "http://localhost:4000/karyawan/get"
+# API_URL = "http://localhost:4000/karyawan/get"
+API_URL = "https://api-presensi-production-0bc4.up.railway.app/karyawan/get"
 
 # --- Database & Services Configuration ---
 MONGO_URI = "mongodb+srv://wh891706:Jz1X5pslUXxCBw9s@cluster0.vt4xkx8.mongodb.net"
 MONGO_DB_NAME = "presensi_ai"
 
-BASE_URL = "http://localhost:6734"
+# BASE_URL = "http://localhost:6734"
+BASE_URL = "https://analysis-production-c800.up.railway.app"
 
 FTP_HOST = "ftp5.pptik.id"
 FTP_PORT = 2121
