@@ -13,7 +13,13 @@ env/
 # File Model dan Dataset (ini penting!)
 # Kita tidak ingin menyimpan gambar dan model besar di repository kode.
 # Mereka akan di-upload/dibuat langsung di server.
-
+app_training/dataset/
+# dataset
+backup
+# *.clf
+# *.pkl
+# *.h5
+# *.dat
 
 # Log dan file spesifik OS
 wfastcgi.log
