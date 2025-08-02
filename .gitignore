@@ -16,10 +16,10 @@ env/
 app_training/dataset/
 # dataset
 backup
-# *.clf
-# *.pkl
-# *.h5
-# *.dat
+*.clf
+*.pkl
+*.h5
+*.dat
 
 # Log dan file spesifik OS
 wfastcgi.log
